@@ -1,0 +1,32 @@
+div(id="settings", class="panel", data-title="Settings")
+  form(id="settings-form")
+    fieldset
+      legend Recreation Type
+      p
+        input(type="radio", id="facilities", name="type", value="facilities")
+        label(for="facilities") Facilities
+      p
+        input(type="radio", id="recreational_areas", name="type", value="recreational_areas")
+        label(for="recreational_areas") Recreational Areas
+    fieldset
+      legend Results Limit
+      p
+        input(type="radio", id="limit-10", name="limit", value="10")
+        label(for="limit-10") 10
+      p
+        input(type="radio", id="limit-15", name="limit", value="15")
+        label(for="limit-15") 15
+      p
+        input(type="radio", id="limit-20", name="limit", value="20")
+        label(for="limit-20") 20
+    fieldset
+      legend Search Radius
+      p
+        input(type="radio", id="radius-50", name="radius", value="50")
+        label(for="radius-50") 50
+      p
+        input(type="radio", id="radius-100", name="radius", value="100")
+        label(for="radius-100") 100
+      p
+        input(type="radio", id="radius-200", name="radius", value="200")
+        label(for="radius-200") 200
