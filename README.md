@@ -5,7 +5,7 @@ accessible way.
 
 Built on Bluemix
 
-[![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=#CHANGME)
+[![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/myAmericaDevSummit2015/RecCollection)
 
 #### Introduction
 RecCollection is a project that began its life as a hackathon effort by a team
