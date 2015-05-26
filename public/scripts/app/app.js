@@ -146,51 +146,65 @@
     };
 
     var processWeather = function() {
-        var currentWeatherIsFinished = false,
-            forecastWeatherIsFinished = false;
+        var currentWeatherFinished = false,
+            forecastWeatherFinished = false,
+            processLocked = false;
 
-        var currentWeatherFinished = function(data) {
+        var lock = function() { proccessLocked = true; };
+        var unlock = function() { processLocked = false; };
+
+        var processCurrentWeather = function(data) {
+            lock();
+
             applyCurrentWeather(data);
 
-            currentWeatherIsFinished = !currentWeatherIsFinished;
+            currentWeatherFinished = true;
+            unlock();
         };
 
-        var forecastWeatherFinished = function(data) {
+        var processForecastWeather = function(data) {
+            lock();
+
             applyForecastWeather(data);
 
-            forecastWeatherIsFinished = !forecastWeatherIsFinished;
+            forecastWeatherFinished = true;
+            unlock();
         };
 
         var weatherProcesses = [
             {
                 method: 'initWeather',
                 type: 'current',
-                callback: currentWeatherFinished
+                callback: processCurrentWeather
             },
             {
                 method: 'initWeather',
                 type: 'forecast',
-                callback: forecastWeatherFinished
+                callback: processForecastWeather
             }
         ];
 
         var waitForWeatherThenRender = function() {
             var nextWeatherProcess = function() {
-                if(!weatherProcesses.length == 0) {
-                    var process = weatherProcesses.pop();
-                }
+                var process = weatherProcesses.pop();
 
                 if(process) {
                     eval(process.method)(process.type, process.callback);
                 }
             }
 
-            if(currentWeatherIsFinished && forecastWeatherIsFinished) {
+            if(currentWeatherFinished && forecastWeatherFinished) {
                 renderLocationToMap();
-                processLocations();
+                return processLocations();
+            }
+
+            var WEATHER_TIMEOUT = 100;
+
+            if(processLocked) {
+                return setTimeout(waitForWeatherThenRender, WEATHER_TIMEOUT);
             } else {
                 nextWeatherProcess();
-                setTimeout(waitForWeatherThenRender, 400);
+                setTimeout(waitForWeatherThenRender, WEATHER_TIMEOUT);
             }
         };
 
@@ -201,7 +215,7 @@
 
     // TODO: Move to RIDBController (or model?) (exiquio)
     var processLocations = function() {
-        var  thisLocation = locations.pop();
+        var thisLocation = locations.pop();
 
         if(thisLocation) {
             currentLocation = thisLocation;
@@ -355,7 +369,8 @@
             parseLatitude(currentPosition),
             parseLongitude(currentPosition)
         ];
-        var ZOOM_LEVEL = 8;
+        // TODO: Make UI Setting
+        var ZOOM_LEVEL = 6;
 
         map = L.map('map');
         map.setView(coordinates, ZOOM_LEVEL);

@@ -1,10 +1,10 @@
 var Application = (function(module) {
     if(!module.controllers) { module.controllers = {} }
 
-    var xhr = new XMLHttpRequest();
-
     module.controllers.AuthenticationController = {
         fetchToken: function(successHandler, errorHandler) {
+            var xhr = new XMLHttpRequest();
+
             xhr.onload = function() {
                 var data = JSON.parse(xhr.responseText);
 

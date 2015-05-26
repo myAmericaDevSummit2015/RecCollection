@@ -1,12 +1,12 @@
 var Application = (function(module) {
     if(!module.controllers) { module.controllers = {} }
 
-    var xhr = new XMLHttpRequest(),
-        audioContext = new AudioContext(),
-        source = audioContext.createBufferSource();
-
     module.controllers.TextToSpeechController = {
         fetch: function() {
+            var xhr = new XMLHttpRequest(),
+                audioContext = new AudioContext(),
+                source = audioContext.createBufferSource();
+
             xhr.onload = function() {
                 var playAudio = function(buffer) {
                     source.buffer = buffer;

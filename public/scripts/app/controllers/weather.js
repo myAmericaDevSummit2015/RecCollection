@@ -1,10 +1,10 @@
 var Application = (function(module) {
     if(!module.controllers) { module.controllers = {} }
 
-    var xhr = new XMLHttpRequest();
-
     module.controllers.WeatherController = {
         fetch: function(type, coordinates, successHandler, errorHandler) {
+            var xhr = new XMLHttpRequest();
+
             xhr.onreadystatechange = function() {
                 if(xhr.readyState == 4) {
                     if(xhr.status == 200) {
