@@ -99,23 +99,23 @@ var Application = (function(module) {
             var marker = L
                 .marker([locale.latitude, locale.longitude]);
 
-            var template = document
-                .body
-                .querySelector('#location-template');
-
-            var newLocationModule = document
-                .importNode(template.content, true);
-            
-            var weather = {
-                current: current,
-                forecast: forecast
-            };
-
-            initLocationData(locale, newLocationModule);
-            initWeatherData(weather, newLocationModule);
-            initTextToSpeech(locale, weather, newLocationModule);
-
             marker.on('click', function(event) {
+                var template = document
+                    .body
+                    .querySelector('#location-template');
+
+                var newLocationModule = document
+                    .importNode(template.content, true);
+                
+                var weather = {
+                    current: current,
+                    forecast: forecast
+                };
+
+                initLocationData(locale, newLocationModule);
+                initWeatherData(weather, newLocationModule);
+                initTextToSpeech(locale, weather, newLocationModule);
+
                 this.bindPopup(newLocationModule);
             });
 
