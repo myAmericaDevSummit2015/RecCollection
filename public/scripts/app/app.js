@@ -370,7 +370,7 @@
             parseLongitude(currentPosition)
         ];
         // TODO: Make UI Setting
-        var ZOOM_LEVEL = 6;
+        var ZOOM_LEVEL = 7;
 
         map = L.map('map');
         map.setView(coordinates, ZOOM_LEVEL);

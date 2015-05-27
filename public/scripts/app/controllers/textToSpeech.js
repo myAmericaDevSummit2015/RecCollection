@@ -2,7 +2,7 @@ var Application = (function(module) {
     if(!module.controllers) { module.controllers = {} }
 
     module.controllers.TextToSpeechController = {
-        fetch: function() {
+        speak: function(text) {
             var xhr = new XMLHttpRequest(),
                 audioContext = new AudioContext(),
                 source = audioContext.createBufferSource();
@@ -24,12 +24,14 @@ var Application = (function(module) {
                 audioContext
                     .decodeAudioData(xhr.response, playAudio, handleError);
             };
+
             xhr.onerror = function() { console.log('An error occurred'); };
 
-            var urlBase = 'http://localhost:3001/api/v1/text_to_speech/';
+            var urlBase = 'https://reccollector.mybluemix.net/api/v1/text_to_speech/';
+            //var urlBase = 'http://localhost:3001/api/v1/text_to_speech/';
             var url = [
                 urlBase,
-                'test',
+                text,
             ].join('');
 
             xhr.open('GET', encodeURI(url), true);

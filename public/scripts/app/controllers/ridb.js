@@ -19,8 +19,8 @@ var Application = (function(module) {
                 }
             };
 
-            ///var urlBase = 'http://reccollector.mybluemix.net/api/v1/ridb/';
-            var urlBase = 'http://localhost:3001/api/v1/ridb/',
+            var urlBase = 'https://reccollector.mybluemix.net/api/v1/ridb/';
+            //var urlBase = 'http://localhost:3001/api/v1/ridb/',
                 radius = Application.ridb.radius,
                 limit = Application.ridb.limit;
 

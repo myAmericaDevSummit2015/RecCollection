@@ -17,8 +17,8 @@ var Application = (function(module) {
 
             // TODO: Find a clean way to switch these
             // We could pull it from this apps own server, localhost:3000
-            //var url = 'http://reccollector.mybluemix.net/api/v1/token';
-            var url = 'http://localhost:3001/api/v1/token';
+            var url = 'https://reccollector.mybluemix.net/api/v1/token';
+            //var url = 'http://localhost:3001/api/v1/token';
 
             xhr.open('GET', encodeURI(url));
             // FIXME: Obsfuscate
