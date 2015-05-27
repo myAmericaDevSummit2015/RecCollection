@@ -20,8 +20,8 @@ var Application = (function(module) {
             };
 
             // TODO: Make dynamic for localhost testing. (exiquio)
-            //var urlBase = 'http://reccollector.mybluemix.net/api/v1/weather/';
-            var urlBase = 'http://localhost:3001/api/v1/weather/';
+            var urlBase = 'https://reccollector.mybluemix.net/api/v1/weather/';
+            //var urlBase = 'http://localhost:3001/api/v1/weather/';
 
             var url = [
                 urlBase,

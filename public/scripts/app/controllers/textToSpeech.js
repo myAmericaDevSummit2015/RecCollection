@@ -27,7 +27,8 @@ var Application = (function(module) {
 
             xhr.onerror = function() { console.log('An error occurred'); };
 
-            var urlBase = 'http://localhost:3001/api/v1/text_to_speech/';
+            var urlBase = 'https://reccollector.mybluemix.net/api/v1/text_to_speech/';
+            //var urlBase = 'http://localhost:3001/api/v1/text_to_speech/';
             var url = [
                 urlBase,
                 text,
