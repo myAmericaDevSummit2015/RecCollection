@@ -3,6 +3,8 @@ A proof of concept thick client to RecCollector. Its goal is to provide
 Recreation Information Database (RIDB) site information by location in an
 accessible way. 
 
+[Reference Instance] (http://reccollection.mybluemix.net/)
+
 Built on Bluemix
 
 [![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/myAmericaDevSummit2015/RecCollection)
