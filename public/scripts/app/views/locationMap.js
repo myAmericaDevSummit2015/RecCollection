@@ -22,13 +22,6 @@ var Application = (function(module) {
             current.description,
             ')'].join('');
 
-        var locale = module
-            .querySelector('#current-locale');
-        locale.textContent = [
-            current.locale,
-            ', ',
-            current.country].join('');
-
         var currentTemperature = module.querySelector('#current-temperature');
         currentTemperature.textContent = current.temperature;
 
@@ -64,9 +57,7 @@ var Application = (function(module) {
         var text = [
             locale.name,
             'Weather information:',
-            'Currently the weather in',
-            current.locale,
-            'is',
+            'Currently the weather is',
             current.general,
             'with a temperature of',
             current.temperature,
